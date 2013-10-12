@@ -11,9 +11,6 @@ import java.awt.Frame;
 
 import javax.swing.UIManager;
 
-//import leap.SampleListener;
-
-
 import leap.SampleListener;
 
 import com.jogamp.opengl.util.FPSAnimator;
@@ -34,7 +31,7 @@ import com.tuohy.worldwindvr.scratch.Throwaway3dModelsLayer;
 public class WorldWindVR extends Frame{
 
 	//the worldwind OpenGL canvas
-	WorldWindowGLCanvas wwd;
+	public WorldWindowGLCanvas wwd;
 	
 	// the first-person view
 	public VRFlyView view;
@@ -73,8 +70,8 @@ public class WorldWindVR extends Frame{
 				
 		wwd.addMouseMotionListener(new WorldwindVRMouseListener(this));
 		
-		//SampleListener listener = new SampleListener(null);
-		//Controller controller = new Controller();
+
+
 		
 		//TODO: For some reason Bing Imagerly layer MURDERS frame rate, but 
 		//the virtual earth aerial imagery does not (although much of the imagery
@@ -85,7 +82,7 @@ public class WorldWindVR extends Frame{
 //			    <ForceLevelZeroLoads>false</ForceLevelZeroLoads>
 //			    <RetainLevelZeroTiles>false</RetainLevelZeroTiles>
 //		 wwd.getModel().getLayers().add(new LayerManagerLayer(wwd));
-//		wwd.getModel().getLayers().getLayerByName("Bing Imagery").setEnabled(true);
+ //		wwd.getModel().getLayers().getLayerByName("Bing Imagery").setEnabled(true);
 		
 		//NOTE: this reduces framerate by about 25%, but that is WAY better than Bing Imagery, which reduces by 60% or more
 		wwd.getModel().getLayers().getLayerByName("MS Virtual Earth Aerial").setEnabled(true);

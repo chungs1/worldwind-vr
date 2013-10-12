@@ -22,11 +22,11 @@ public class VRAnnotationsLayer extends RenderableLayer {
 			messageFont = new Font("Helvetica",Font.PLAIN,16);
 		}
 		
-		this.showMessageImmediately("Where is the dinosaur???1?!?!?!?!?!11", 7);
+		this.showMessageImmediately("Where is the dinosaur???1?!?!?!?!?!11", 1);
 		this.queueMessage("Use W,A,S,D to Navigate");
 		this.queueMessage("Use Space Bar to Change Locations");
-		this.queueMessage("Note: on first visit to any location...");
-		this.queueMessage("...it will take time to cache imagery.");
+		//this.queueMessage("Note: on first visit to any location...");
+		//this.queueMessage("...it will take time to cache imagery.");
 		this.queueMessage("Press Escape to Exit");
 	}
 

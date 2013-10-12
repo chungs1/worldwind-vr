@@ -13,6 +13,7 @@ public class LeapMotion {
 		//Create a sample listener & controller
 		SampleListener listener = new SampleListener(null);
 		Controller controller = new Controller();
+		controller.setPolicyFlags(Controller.PolicyFlag.POLICY_BACKGROUND_FRAMES);
 		//Have sample listener collect events from controller
 		controller.addListener(listener);
 		

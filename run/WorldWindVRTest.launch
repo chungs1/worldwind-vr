@@ -17,5 +17,5 @@
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.tuohy.worldwindvr.WorldWindVR"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="x"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="worldwind-vr"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.library.path=.;./native_libraries -Dswing.aatext=true -Xmx1024m"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.library.path=.;./native_libraries;C:\Users\Ongman\Desktop\LeapDeveloperKit\LeapSDK\lib\x64 -Dswing.aatext=true -Xmx1024m"/>
 </launchConfiguration>

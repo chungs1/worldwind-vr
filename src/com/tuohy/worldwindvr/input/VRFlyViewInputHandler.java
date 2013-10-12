@@ -386,6 +386,7 @@ public class VRFlyViewInputHandler extends BasicViewInputHandler
     	//Changed for VR application: negating the side input means that the camera
     	//actually moves int he direction of the arrow key that was pressed
     	sideInput = -sideInput;
+    	//System.out.println(forwardInput + " " + sideInput + " " + totalForwardInput + " " + totalSideInput);
     	
         Angle forwardChange;
         Angle sideChange;

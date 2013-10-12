@@ -15,7 +15,6 @@ import gov.nasa.worldwind.event.RenderingEvent;
 import gov.nasa.worldwind.event.RenderingListener;
 import gov.nasa.worldwind.geom.Position;
 import gov.nasa.worldwind.geom.Vec4;
-
 import gov.nasa.worldwind.ogc.collada.impl.ColladaController;
 
 public class GameLogic implements PositionListener, RenderingListener {
@@ -23,6 +22,7 @@ public class GameLogic implements PositionListener, RenderingListener {
 	private WorldWindVR worldWindVR;
 	private Throwaway3dModelsLayer layer;
 	List<ColladaController> powerups = new ArrayList<ColladaController>();
+	private int score = 0;
 	
 	public GameLogic(WorldWindVR worldWindVR) {
 		// TODO Auto-generated constructor stub
@@ -56,7 +56,7 @@ public class GameLogic implements PositionListener, RenderingListener {
 		//System.out.println(this.worldWindVR.view.getEyePosition());
 		// TODO Auto-generated method stub
 		Random generator = new Random();
-		if(generator.nextDouble() < 0.003) {
+		if(generator.nextDouble() < 0.006) {
 
 			Position position = Position.fromDegrees(this.worldWindVR.view.getEyePosition().getLatitude().getDegrees(), this.worldWindVR.view.getEyePosition().getLongitude().getDegrees() + .04, this.worldWindVR.view.getEyePosition().getElevation());
 			ColladaController powerup = layer.createYoshi(position);
@@ -67,9 +67,10 @@ public class GameLogic implements PositionListener, RenderingListener {
 		for(ColladaController powerup : powerups) {
 			Vec4 current = this.worldWindVR.wwd.getModel().getGlobe().computePointFromPosition(this.worldWindVR.view.getEyePosition());
 			Vec4 powerupPosition = this.worldWindVR.wwd.getModel().getGlobe().computePointFromPosition(powerup.getColladaRoot().getPosition());
-			System.out.println(powerupPosition.distanceTo3(current));
-			if(powerupPosition.distanceTo3(current) < 1050) {
-				//vrFrame.getAnnotationsLayer().showMessageImmediately("In Imagery Caching Mode - press any key to exit");
+			//System.out.println(powerupPosition.distanceTo3(current));
+			if(powerupPosition.distanceTo3(current) < 2050) {
+				score += 1;
+				wwvr.getAnnotationsLayer().showMessageImmediately("Score: " + score, 1);
 				layer.removeCollada(powerup);
 				((VRFlyViewInputHandler) wwvr.wwd.getView().getViewInputHandler()).setCameraTranslationSpeed(30.0);
 				Timer timer = new Timer();

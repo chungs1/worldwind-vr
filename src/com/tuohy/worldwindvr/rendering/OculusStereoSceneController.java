@@ -309,7 +309,7 @@ public class OculusStereoSceneController extends BasicSceneController implements
 			this.initFBO(gl,width,height);
 
 			//creates the shaders used for barrel distortion
-			initShaders(gl, distorter.getBarrelVertexShaderSource(), distorter.getBarrelFragmentShaderSource());			distorter.initialize(gl, shader);;
+			initShaders(gl, distorter.getBarrelVertexShaderSource(), distorter.getBarrelFragmentShaderSource());			distorter.initialize(gl, shader);
 
 			//hard code the viewport height and width (see method comment for reason why)
 			((VRFlyView) dcView).hardCodeViewPortHeightAndWidth(width,height);

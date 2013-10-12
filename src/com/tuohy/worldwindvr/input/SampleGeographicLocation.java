@@ -52,7 +52,6 @@ public class SampleGeographicLocation {
 			}
 			return new SampleGeographicLocation(name,p);
 		}
-		//FIXME: throw an exception instead?
 		System.err.println("Too few fields when parsing location string, skipping:\n" + sglstring);
 		return null;
 	}

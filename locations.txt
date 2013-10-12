@@ -1,7 +1,8 @@
 # Comments are ignored
 #Name can be any length, double latitude, double longitude, double height in meters
+Grand Canyon, 36.173121213137755, -111.69061780538789, 200
+San Francisco, 37.7833, -122.4167, 200
 Manhattan, 40.714623, -74.006605, 200
-Dino, 36.173121213137755,-111.69061780538789, 200
 Uluru, -25.345, 131.036111, 863
 # Are comments working correctly?
 Ha Long Bay, 20.9, 107.2, 50
