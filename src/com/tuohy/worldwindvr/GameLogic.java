@@ -15,11 +15,11 @@ import gov.nasa.worldwind.event.RenderingEvent;
 import gov.nasa.worldwind.event.RenderingListener;
 import gov.nasa.worldwind.geom.Position;
 import gov.nasa.worldwind.geom.Vec4;
-import gov.nasa.worldwind.ogc.collada.ColladaRoot;
+
 import gov.nasa.worldwind.ogc.collada.impl.ColladaController;
 
 public class GameLogic implements PositionListener, RenderingListener {
-
+	private boolean hasObjective = false;
 	private WorldWindVR worldWindVR;
 	private Throwaway3dModelsLayer layer;
 	List<ColladaController> powerups = new ArrayList<ColladaController>();
@@ -29,7 +29,7 @@ public class GameLogic implements PositionListener, RenderingListener {
 		this.worldWindVR = worldWindVR;
 		this.layer = new Throwaway3dModelsLayer(this.worldWindVR);
 		//layer.createTrex(Position.fromDegrees(36.173121213137755,-111.69061780538789,863));
-		layer.createYoshi(Position.fromDegrees(36.173121213137755,-111.69061780538789,963));
+		//layer.createYoshi(Position.fromDegrees(36.173121213137755,-111.69061780538789,963));
 	}
 	
 
@@ -40,11 +40,24 @@ public class GameLogic implements PositionListener, RenderingListener {
 
 	@Override
 	public void stageChanged(RenderingEvent event) {
+
+		if(!hasObjective){
+			Random r = new Random();
+			Random q = new Random();
+			Random s = new Random();
+			double x = 90 * q.nextDouble();
+			double y = -180 + 360 * r.nextDouble();
+			double z = 500 * s.nextDouble();
+			Position position = Position.fromDegrees(x, y, 0);
+			ColladaController objective = layer.createTrex(position);
+			hasObjective = true;
+		}
 		//System.out.println("stageChanged");
 		//System.out.println(this.worldWindVR.view.getEyePosition());
 		// TODO Auto-generated method stub
 		Random generator = new Random();
 		if(generator.nextDouble() < 0.003) {
+
 			Position position = Position.fromDegrees(this.worldWindVR.view.getEyePosition().getLatitude().getDegrees(), this.worldWindVR.view.getEyePosition().getLongitude().getDegrees() + .04, this.worldWindVR.view.getEyePosition().getElevation());
 			ColladaController powerup = layer.createYoshi(position);
 			this.powerups.add(powerup);
@@ -56,6 +69,7 @@ public class GameLogic implements PositionListener, RenderingListener {
 			Vec4 powerupPosition = this.worldWindVR.wwd.getModel().getGlobe().computePointFromPosition(powerup.getColladaRoot().getPosition());
 			System.out.println(powerupPosition.distanceTo3(current));
 			if(powerupPosition.distanceTo3(current) < 1050) {
+				//vrFrame.getAnnotationsLayer().showMessageImmediately("In Imagery Caching Mode - press any key to exit");
 				layer.removeCollada(powerup);
 				((VRFlyViewInputHandler) wwvr.wwd.getView().getViewInputHandler()).setCameraTranslationSpeed(30.0);
 				Timer timer = new Timer();
@@ -68,10 +82,6 @@ public class GameLogic implements PositionListener, RenderingListener {
 			}
 		}
 		
-		
-
-		
 	}
-	
 	
 }

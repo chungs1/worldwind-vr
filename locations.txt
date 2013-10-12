@@ -1,6 +1,9 @@
 # Comments are ignored
 #Name can be any length, double latitude, double longitude, double height in meters
+Manhattan, 40.714623, -74.006605, 200
+Dino, 36.173121213137755,-111.69061780538789, 200
 Uluru, -25.345, 131.036111, 863
 # Are comments working correctly?
 Ha Long Bay, 20.9, 107.2, 50
 Hoover Dam, 36.015556, -114.737778, 375
+T-Rex, 36.173121213137755,-111.69061780538789, 400

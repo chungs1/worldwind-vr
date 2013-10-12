@@ -11,7 +11,7 @@ public class LeapMotion {
 	
 	public static void main(String[] args) {
 		//Create a sample listener & controller
-		SampleListener listener = new SampleListener();
+		SampleListener listener = new SampleListener(null);
 		Controller controller = new Controller();
 		//Have sample listener collect events from controller
 		controller.addListener(listener);

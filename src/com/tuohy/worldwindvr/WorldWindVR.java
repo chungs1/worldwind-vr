@@ -4,8 +4,6 @@ import gov.nasa.worldwind.BasicModel;
 import gov.nasa.worldwind.Configuration;
 import gov.nasa.worldwind.Version;
 import gov.nasa.worldwind.awt.WorldWindowGLCanvas;
-import gov.nasa.worldwind.geom.Angle;
-import gov.nasa.worldwind.geom.LatLon;
 import gov.nasa.worldwind.geom.Position;
 import gov.nasa.worldwind.layers.Layer;
 
@@ -13,8 +11,13 @@ import java.awt.Frame;
 
 import javax.swing.UIManager;
 
+//import leap.SampleListener;
+
+
+import leap.SampleListener;
+
 import com.jogamp.opengl.util.FPSAnimator;
-import com.tuohy.worldwindvr.input.SampleGeographicLocation;
+import com.leapmotion.leap.Controller;
 import com.tuohy.worldwindvr.input.VRFlyView;
 import com.tuohy.worldwindvr.input.WorldWindVRKeyboardListener;
 import com.tuohy.worldwindvr.input.WorldwindVRMouseListener;
@@ -66,10 +69,12 @@ public class WorldWindVR extends Frame{
 //		view.setViewInputHandler(new FlyViewInputHandler());
 		WorldWindVRKeyboardListener vrkbl = new WorldWindVRKeyboardListener(this);
 		wwd.addKeyListener(vrkbl);
-		System.out.println("asdf");
 		wwd.addRenderingListener(new GameLogic(this));
 				
 		wwd.addMouseMotionListener(new WorldwindVRMouseListener(this));
+		
+		//SampleListener listener = new SampleListener(null);
+		//Controller controller = new Controller();
 		
 		//TODO: For some reason Bing Imagerly layer MURDERS frame rate, but 
 		//the virtual earth aerial imagery does not (although much of the imagery

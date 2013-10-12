@@ -1,7 +1,7 @@
 package com.tuohy.worldwindvr.scratch;
 
 import gov.nasa.worldwind.WorldWind;
-import gov.nasa.worldwind.geom.LatLon;
+
 import gov.nasa.worldwind.geom.Position;
 import gov.nasa.worldwind.geom.Vec4;
 import gov.nasa.worldwind.layers.RenderableLayer;
@@ -10,10 +10,7 @@ import gov.nasa.worldwind.ogc.collada.impl.ColladaController;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import javax.swing.SwingUtilities;
 import javax.xml.stream.XMLStreamException;
 
 import com.tuohy.worldwindvr.WorldWindVR;

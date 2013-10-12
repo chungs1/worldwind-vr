@@ -24,7 +24,6 @@ public class VRAnnotationsLayer extends RenderableLayer {
 		
 		this.showMessageImmediately("Where is the dinosaur???1?!?!?!?!?!11", 7);
 		this.queueMessage("Use W,A,S,D to Navigate");
-		this.queueMessage("Use Shift Key to Change Navigation Speed");
 		this.queueMessage("Use Space Bar to Change Locations");
 		this.queueMessage("Note: on first visit to any location...");
 		this.queueMessage("...it will take time to cache imagery.");

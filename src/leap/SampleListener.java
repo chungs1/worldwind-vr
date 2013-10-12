@@ -2,6 +2,7 @@ package leap;
 
 
 import gov.nasa.worldwind.geom.Angle;
+import gov.nasa.worldwind.render.DrawContext;
 
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.FingerList;
@@ -13,10 +14,17 @@ import com.leapmotion.leap.Listener;
 import com.leapmotion.leap.Gesture;
 import com.leapmotion.leap.ScreenTapGesture;
 import com.leapmotion.leap.Vector;
+import com.tuohy.worldwindvr.WorldWindVR;
+import com.tuohy.worldwindvr.input.VRFlyView;
 
 public class SampleListener extends Listener {
 	
 	SubstituteGame subgame;
+	private WorldWindVR wwvr;
+	
+	public SampleListener(WorldWindVR wwvr) {
+		this.wwvr = wwvr;
+	}
 	
 	public void onConnect(Controller controller) {
 		 System.out.println("Connected");
@@ -50,11 +58,13 @@ public class SampleListener extends Listener {
 					
 					/* Is this Right? */
 					
+					DrawContext dc = wwvr.getOculusSceneController().getDrawContext();
+					
 					//this is the hand angle. Angled Up = Look up, Down = look down
 					if (avgPos.normalized().pitch() == 0 && avgPos.normalized().getY() == 0) {
 						Angle offsetDir = new Angle(Angle.fromDegrees(avgPos.getX()));
 						Angle offsetAmt = new Angle(Angle.SECOND);
-						subgame.view.applyWithOffset(subgame.dc, offsetDir, subgame.position, offsetAmt, subgame.elevation);
+						((VRFlyView) wwvr.getView()).applyWithOffset(dc, offsetDir, subgame.position, offsetAmt, subgame.elevation);
 					}
 					//This is the 
 					
