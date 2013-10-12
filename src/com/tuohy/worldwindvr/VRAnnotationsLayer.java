@@ -22,7 +22,7 @@ public class VRAnnotationsLayer extends RenderableLayer {
 			messageFont = new Font("Helvetica",Font.PLAIN,16);
 		}
 		
-		this.showMessageImmediately("Welcome to the WorldWindVR Demo!", 7);
+		this.showMessageImmediately("Where is the dinosaur???1?!?!?!?!?!11", 7);
 		this.queueMessage("Use W,A,S,D to Navigate");
 		this.queueMessage("Use Shift Key to Change Navigation Speed");
 		this.queueMessage("Use Space Bar to Change Locations");

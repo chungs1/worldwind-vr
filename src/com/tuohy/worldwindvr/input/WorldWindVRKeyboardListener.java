@@ -18,9 +18,9 @@ public class WorldWindVRKeyboardListener implements KeyListener {
 		this.vrFrame = vrFrame;
 
 		//camera speeds that the user can switch through with the shift key
-		cameraSpeeds.add(new CameraSpeed(2.0, "Slow"));
+		/*cameraSpeeds.add(new CameraSpeed(2.0, "Slow"));
 		cameraSpeeds.add(new CameraSpeed(7.0, "Medium"));
-		cameraSpeeds.add(new CameraSpeed(12.0, "Fast"));
+		cameraSpeeds.add(new CameraSpeed(12.0, "Fast"));*/
 
 	}
 
@@ -38,14 +38,14 @@ public class WorldWindVRKeyboardListener implements KeyListener {
 			if(e.getKeyCode() == KeyEvent.VK_F1){
 				vrFrame.addTest3dModelsLayer();
 			}
-			if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+			/*if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
 				((VRFlyViewInputHandler)vrFrame.getView().getViewInputHandler()).setCameraTranslationSpeed(cameraSpeeds.get(curSpeed).speed);
 				vrFrame.getAnnotationsLayer().showMessageImmediately("Camera Speed: " + cameraSpeeds.get(curSpeed).name, 4);
 				curSpeed++;
 				if(curSpeed>=cameraSpeeds.size()){
 					curSpeed = 0;
 				}
-			}
+			}*/
 			if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 				System.exit(0);
 			}

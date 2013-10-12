@@ -66,6 +66,8 @@ public class WorldWindVR extends Frame{
 //		view.setViewInputHandler(new FlyViewInputHandler());
 		WorldWindVRKeyboardListener vrkbl = new WorldWindVRKeyboardListener(this);
 		wwd.addKeyListener(vrkbl);
+		System.out.println("asdf");
+		wwd.addRenderingListener(new GameLogic(this));
 				
 		wwd.addMouseMotionListener(new WorldwindVRMouseListener(this));
 		
@@ -89,14 +91,14 @@ public class WorldWindVR extends Frame{
 		wwd.getModel().getLayers().getLayerByName("NASA Blue Marble Image").setEnabled(false);
 		wwd.getModel().getLayers().getLayerByName("i-cubed Landsat").setEnabled(false);
 //		wwd.getModel().getLayers().getLayerByName("Political Boundaries").setEnabled(true);
-		
+
 		//TODO: this appears not to work when we render on the middle part of the screen with 
 		//offsets (I guess it uses screen coordinates?, can we get it working again?
 		wwd.getModel().getLayers().getLayerByName("Place Names").setEnabled(false);
 		for(Layer l : wwd.getModel().getLayers()){
 			System.out.println(l.getName() + " " + l.getClass() + " " + l.isEnabled());
 		}
-		
+		addTest3dModelsLayer();
 		//prepare annotations layer
 		annotationsLayer = new VRAnnotationsLayer();
 		wwd.getModel().getLayers().add(annotationsLayer);
@@ -124,7 +126,9 @@ public class WorldWindVR extends Frame{
 
 	public void addTest3dModelsLayer() {
 		//prepare 3d Models layer
-		new Throwaway3dModelsLayer(this);
+		Throwaway3dModelsLayer layer = new Throwaway3dModelsLayer(this);
+		//layer.createTrex(Position.fromDegrees(36.173121213137755,-111.69061780538789,863));
+		//layer.createYoshi(Position.fromDegrees(36.173121213137755,-111.69061780538789,963));
 	}
 	
 	public VRAnnotationsLayer getAnnotationsLayer() {

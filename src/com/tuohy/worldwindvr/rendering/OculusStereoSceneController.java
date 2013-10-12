@@ -263,7 +263,7 @@ public class OculusStereoSceneController extends BasicSceneController implements
 		if(frameCount==20){
 			frameCount = 0;
 			double elapsed = System.currentTimeMillis() - firstFrameTime;
-			System.out.println("FPS: " + 1.0/(elapsed/20000.0));
+			//System.out.println("FPS: " + 1.0/(elapsed/20000.0));
 			firstFrameTime = System.currentTimeMillis();
 		}
 
